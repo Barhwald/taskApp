@@ -1,1 +1,1 @@
-# taskApp
+It's a java spring app using RESTful API to interact with Trello platform
