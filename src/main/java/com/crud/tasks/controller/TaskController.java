@@ -25,7 +25,7 @@ public class TaskController {
     }
 
     @PutMapping("/{id}")
-    public TaskDto updateTask(@PathVariable Long id, TaskDto taskDto) {
+    public TaskDto updateTask(@PathVariable("id") Long taskId, TaskDto taskDto) {
         return new TaskDto(1L, "Edited test title", "Test content");
     }
 
