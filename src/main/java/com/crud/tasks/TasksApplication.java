@@ -6,12 +6,26 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class TasksApplication {
     public static void main(String[] args) {
-        int[] grades = {3, 1, 1, 5, 6, 4};
-        int[] weights = {4, 6, 8, 4, 4, 10};
-        System.out.printf("%.2f", countWeightedAvg(grades, weights));
+//        int[] grades = {3, 1, 1, 5, 6, 4};
+//        int[] weights = {4, 6, 8, 4, 4, 10};
+//        System.out.printf("%.2f", countWeightedAvg(grades, weights));
+//        System.out.println(isNumberPrime(2));
+//        System.out.println(isNumberPrime(4));
+//        System.out.println(isNumberPrime(7));
+//        System.out.println(isNumberPrime(19));
 		SpringApplication.run(TasksApplication.class, args);
     }
 
+    //ZADANIE DODATKOWE 19.3 Liczby pierwsze
+
+    public static boolean isNumberPrime(int a) {
+        for (int i = 2; i <= a/2; i++) {
+            if (a % i == 0) {
+                return false;
+            }
+        }
+        return true;
+    }
     public static double countWeightedAvg(int[] grades, int[] weights) {
         double total = 0;
         if (!areGradesInBounds(grades)) {
@@ -33,6 +47,7 @@ public class TasksApplication {
         }
         return total / grades.length;
     }
+
 
     // check if grade is in range
     public static boolean areGradesInBounds(int[] grades) {
