@@ -2,6 +2,8 @@ package com.crud.tasks.mapper;
 
 import com.crud.tasks.domain.Task;
 import com.crud.tasks.domain.TaskDto;
+import com.crud.tasks.domain.User;
+import com.crud.tasks.domain.UserDto;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -29,6 +31,13 @@ public class TaskMapper {
         return taskList.stream()
                 .map(this::mapToTaskDto)
                 .toList();
+    }
+
+    public UserDto mapToUserDto(final User user) {
+        return new UserDto(
+                user.getLogin(),
+                user.getLocation()
+        );
     }
 
 }
