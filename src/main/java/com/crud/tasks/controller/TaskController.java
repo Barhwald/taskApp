@@ -2,15 +2,12 @@ package com.crud.tasks.controller;
 
 import com.crud.tasks.domain.Task;
 import com.crud.tasks.domain.TaskDto;
-import com.crud.tasks.domain.User;
-import com.crud.tasks.domain.UserDto;
 import com.crud.tasks.mapper.TaskMapper;
 import com.crud.tasks.service.DbService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
 
@@ -54,19 +51,4 @@ public class TaskController {
         return ResponseEntity.ok().build();
     }
 
-//    @GetMapping(value = "/poland")
-//    public ResponseEntity<List<Object>> getPoland() {
-//        String url = "https://restcountries.com/v3.1/name/poland";
-//        RestTemplate restTemplate = new RestTemplate();
-//        Object[] countries = restTemplate.getForObject(url, Object[].class);
-//        return ResponseEntity.ok(Arrays.asList(countries));
-//    }
-
-    @GetMapping(value = "/{userName}")
-    public ResponseEntity<UserDto> getUser(@PathVariable String userName) {
-        String url = "https://api.github.com/users/" + userName;
-        RestTemplate restTemplate = new RestTemplate();
-        User user = restTemplate.getForObject(url, User.class);
-        return ResponseEntity.ok(taskMapper.mapToUserDto(user));
-    }
 }
