@@ -31,11 +31,4 @@ public class TaskMapper {
                 .toList();
     }
 
-    public UserDto mapToUserDto(final User user) {
-        return new UserDto(
-                user.getLogin(),
-                user.getLocation()
-        );
-    }
-
 }
