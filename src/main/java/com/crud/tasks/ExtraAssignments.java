@@ -20,9 +20,22 @@ public class ExtraAssignments {
 //        int[] myArr = {3, 1, 1, 5, 6, 4};
 //        sortArray(myArr);
 //        System.out.println(Arrays.toString(myArr));
+//
+//        List<Integer> myList = new ArrayList<>(List.of(3,1,1,5,6,4,0,-9,23));
+//        sortList(myList);
+        System.out.println(switchToInt("2a3"));
+    }
 
-        List<Integer> myList = new ArrayList<>(List.of(3,1,1,5,6,4,0,-9,23));
-        sortList(myList);
+    //ZADANIE DODATKOWE 22.4 Zmieniamy znak w cyfrę
+
+    public static int switchToInt(String str) {
+        int a = -1;
+        try {
+            a = Integer.parseInt(str);
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return a;
     }
 
     //ZADANIE DODATKOWE 20.1 Wartościowa segregacja

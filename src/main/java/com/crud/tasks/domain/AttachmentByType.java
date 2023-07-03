@@ -1,2 +1,9 @@
-package com.crud.tasks.domain;public class AttachmentByType {
+package com.crud.tasks.domain;
+
+import lombok.Data;
+
+@Data
+public class AttachmentByType {
+
+    private Trello trello;
 }
