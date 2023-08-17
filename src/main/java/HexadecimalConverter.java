@@ -1,5 +1,3 @@
-package com.crud.tasks;
-
 public class HexadecimalConverter {
 
     public static void main(String[] args) {
