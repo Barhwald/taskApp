@@ -127,6 +127,7 @@ class TaskControllerTest {
         when(taskRepository.findById(any(Long.class))).thenReturn(Optional.of(task));
         when(taskRepository.save(any(Task.class))).thenReturn(updatedTask);
         when(taskMapper.mapToTaskDto(any(Task.class))).thenReturn(taskDto);
+        when(taskMapper.mapToTask(any(TaskDto.class))).thenReturn(updatedTask);
 
         Gson gson = new Gson();
         String jsonContent = gson.toJson(taskDto);
