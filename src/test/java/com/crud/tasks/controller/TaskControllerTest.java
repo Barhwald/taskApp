@@ -99,6 +99,7 @@ class TaskControllerTest {
 
         when(dbService.saveTask(any(Task.class))).thenReturn(task);
         when(taskMapper.mapToTask(any(TaskDto.class))).thenReturn(task);
+        when(taskMapper.mapToTaskDto(any(Task.class))).thenReturn(taskDto);
 
         Gson gson = new Gson();
         String jsonContent = gson.toJson(taskDto);
@@ -125,7 +126,7 @@ class TaskControllerTest {
         long taskId = 1L;
 
         when(taskRepository.findById(any(Long.class))).thenReturn(Optional.of(task));
-        when(taskRepository.save(any(Task.class))).thenReturn(updatedTask);
+        when(dbService.saveTask(any(Task.class))).thenReturn(updatedTask);
         when(taskMapper.mapToTaskDto(any(Task.class))).thenReturn(taskDto);
         when(taskMapper.mapToTask(any(TaskDto.class))).thenReturn(updatedTask);
 
@@ -140,7 +141,7 @@ class TaskControllerTest {
                         .characterEncoding("UTF-8")
                         .content(jsonContent))
                 .andExpect(MockMvcResultMatchers.status().isOk())
-                .andExpect(MockMvcResultMatchers.jsonPath("$.id", Matchers.is(1L)))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.id", Matchers.is(1)))
                 .andExpect(MockMvcResultMatchers.jsonPath("$.title", Matchers.is("New title")))
                 .andExpect(MockMvcResultMatchers.jsonPath("$.content", Matchers.is("New content")));
     }
