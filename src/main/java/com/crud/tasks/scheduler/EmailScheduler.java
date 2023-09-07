@@ -30,4 +30,14 @@ public class EmailScheduler {
                 )
         );
     }
+
+    @Scheduled(cron = "0 0 8 * * *")
+    public void sendEmailEveryday() {
+        simpleEmailService.send(
+                new Mail(adminConfig.getAdminMail(),
+                        SUBJECT,
+                        "The number of all tasks is:"
+                        )
+        );
+    }
 }
